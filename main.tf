@@ -12,6 +12,7 @@ locals {
         from_port = lookup(r,"port",0)
         to_port = lookup(r,"port",0)
         cidr_blocks = lookup(r,"cidr_blocks",null)
+        security_groups = lookup(r,"security_groups",null)
         self = false
     }])
 
@@ -27,6 +28,7 @@ locals {
         from_port = lookup(r,"port",0)
         to_port = lookup(r,"port",0)
         cidr_blocks = lookup(r,"cidr_blocks",null)
+        security_groups = lookup(r,"security_groups",null)
     }])
 }
 
