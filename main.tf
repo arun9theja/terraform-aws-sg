@@ -5,6 +5,7 @@ locals {
         from_port = 0
         to_port = 0
         cidr_blocks = null
+        security_groups = null
         self = true
     },
     ],[for r in var.ingress_rules : {
@@ -22,6 +23,7 @@ locals {
         from_port   = 0
         to_port     = 0
         cidr_blocks = ["0.0.0.0/0"]
+        security_groups = null
     }
     ],[for r in var.egress_rules : {
         protocol = lookup(r,"protocol","tcp")
@@ -45,6 +47,7 @@ resource "aws_security_group" "security_group" {
             to_port = ingress.value.to_port
             cidr_blocks = ingress.value.cidr_blocks
             self = ingress.value.self
+            security_groups = ingress.value.security_groups
         }
     }
 
@@ -55,6 +58,7 @@ resource "aws_security_group" "security_group" {
             from_port = egress.value.from_port
             to_port = egress.value.to_port
             cidr_blocks = egress.value.cidr_blocks
+            security_groups = egress.value.security_groups
         }
     }
  }
