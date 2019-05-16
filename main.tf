@@ -8,7 +8,7 @@ locals {
         self = true
     },
     ],[for r in var.ingress_rules : {
-        protocol = lookup(r,"protocol",-1)
+        protocol = lookup(r,"protocol","tcp")
         from_port = lookup(r,"port",0)
         to_port = lookup(r,"port",0)
         cidr_blocks = lookup(r,"cidr_blocks",null)
@@ -24,7 +24,7 @@ locals {
         cidr_blocks = ["0.0.0.0/0"]
     }
     ],[for r in var.egress_rules : {
-        protocol = lookup(r,"protocol",-1)
+        protocol = lookup(r,"protocol","tcp")
         from_port = lookup(r,"port",0)
         to_port = lookup(r,"port",0)
         cidr_blocks = lookup(r,"cidr_blocks",null)

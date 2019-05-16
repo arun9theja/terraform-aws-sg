@@ -1,5 +1,5 @@
 # terraform-aws-sg
-This is a module that makes it easy to create security groups in AWS, compatible with 0.12
+This is a module that makes it easy to create security groups in AWS. Built for 0.12
 
 Example Usage:
 ```

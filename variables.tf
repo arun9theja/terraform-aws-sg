@@ -11,13 +11,6 @@ variable "vpc_id" {
     type = string
 }
 
-/*[
-    {
-        protocol = "tcp"
-        port = 80
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-]*/
 variable "ingress_rules" {
     default = []
     description = "A list of custom ingress rules to apply"
